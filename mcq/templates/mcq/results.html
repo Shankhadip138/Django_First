@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+  </head>
+  <body>
+    <div class="container">
+    <h1>{{question.question_text}}</h1>
+    {%for choice in question.choice_set.all%}
+    <ul class="list-group">
+          <li class="list-group-item">{{choice.choice_text}}-- {{choice.votes}} Vote(s)</li>
+        </ul>
+      {%endfor%}
+        <br>
+        <br>
+      <a href="{%url 'mcq:details'  question.id %}">Vote Again?</a>
+      <br>
+      <br>
+      <a href="{%url 'mcq:index'%}">Go Back To Questions</a>
+    </div>
+  </body>
+</html>
